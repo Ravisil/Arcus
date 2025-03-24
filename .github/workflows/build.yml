@@ -37,10 +37,10 @@ jobs:
         api-level: 31
         ndk: 21.1.6352462
 
-- name: Create local.properties
-  run: |
-    echo "sdk.dir=${{ env.ANDROID_SDK_ROOT }}" > local.properties
-    echo "OPEN_AI_API_TOKEN=${{ secrets.OPEN_AI_API_TOKEN }}" >> local.properties
+    - name: Create local.properties
+      run: |
+        echo "sdk.dir=${{ env.ANDROID_SDK_ROOT }}" > local.properties
+        echo "OPEN_AI_API_TOKEN=${{ secrets.OPEN_AI_API_TOKEN }}" >> local.properties
 
     - name: Build with Gradle
       run: ./gradlew build
